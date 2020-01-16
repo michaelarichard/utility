@@ -1,0 +1,18 @@
+---
+org:
+  subcategory1_list:
+  - listitem1
+  - listitem2
+  - listitem3
+  - listitem4
+  subcategory2_list:
+  - listitem5
+  - listitem6
+  - listitem7
+  - listitem8
+  subcategory3:
+  - systype: bluemix_app
+  - version: 1234-test-branch
+  - setup_steps:
+      this is a multi-line entry in a single object
+      this is the second line

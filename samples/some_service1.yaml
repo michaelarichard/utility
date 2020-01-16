@@ -1,0 +1,11 @@
+---
+some_service1:
+  - endpoint: https://some_service1.kp.org:8081
+  - type: static
+  - dependencies:
+    - some_service3:
+      - manifest_url: http://my_stub_repo/some_service3/manifest.yaml
+      - version: somegithubtagorhash
+    - some_service4:
+      - manifest_url: http://my_stub_repo/some_service4/manifest.yaml
+      - version: 1.20

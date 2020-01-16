@@ -1,0 +1,11 @@
+---
+eci:
+  type: dynamic
+  deploy_function: some_shared_lib_hook_info()
+  dependencies:
+  - some_service1:
+    manifest_url: some_service1.yaml
+    version: 1.0
+  - some_service2:
+    manifest_url: some_service2.yaml
+    version: 2.34

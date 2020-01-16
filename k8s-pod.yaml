@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secrets
+spec:
+  containers:
+  - name: secrets
+    image: michaelrichard/secrets
+    env:
+    - name: SECRET_TEMPLATE
+      value: samples/secret2.yaml
+    - name: SECRET_KEY
+      value: vault.txt
+    - name: SECRET_VALUE
+      value: my_vault_token_value
+    - name: SECRET_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: test-secret
+          key: username
+    resources:
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+    volumeMounts:
+      # name must match the volume name below
+      - name: secret-volume
+        mountPath: /etc/secret-volume
+  # The secret data is exposed to Containers in the Pod through a Volume.
+  volumes:
+    - name: secret-volume
+      secret:
+        secretName: test-secret
